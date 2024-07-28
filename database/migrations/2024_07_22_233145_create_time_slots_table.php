@@ -16,7 +16,7 @@ return new class extends Migration
             $table->time('startTime');
             $table->time('endTime');
             $table->boolean('is_available');
-            $table->foreignId('serviceId')->constrained('services');
+            $table->foreignId('serviceId')->constrained('services')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('verification_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('serviceName');
-            $table->string('description');
-            $table->foreignId('serviceTypeId')->constrained('service_types')->onDelete('cascade');
-            $table->timestamps();
+            $table->string('email');
+            $table->string('code');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('expires_at')->nullable();
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('verification_codes');
     }
 };

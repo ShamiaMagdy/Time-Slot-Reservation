@@ -9,7 +9,7 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable=[];
+    protected $fillable=['serviceName','description','serviceTypeId'];
 
     public function timeSlots(){
         return $this->hasMany(TimeSlot::class);

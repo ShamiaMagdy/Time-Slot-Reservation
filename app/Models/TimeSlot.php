@@ -9,7 +9,7 @@ class TimeSlot extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['startTime','endTime','is_available','serviceId'];
 
     public function service()
     {

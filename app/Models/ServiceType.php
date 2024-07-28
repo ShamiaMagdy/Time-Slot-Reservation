@@ -9,8 +9,8 @@ class ServiceType extends Model
 {
     use HasFactory;
 
-    protected $fillable=[];
-    
+    protected $fillable=['serviceTypeName','description'];
+
     public function services(){
         return $this->hasMany(Service::class);
     }

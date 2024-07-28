@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MailerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/Register',[AuthController::class, 'Register']);
+Route::post('/Login',[AuthController::class, 'Login']);
+Route::post('/UpdatePassword',[AuthController::class, 'UpdatePassword']);
+Route::post('/Logout',[AuthController::class, 'Logout']);
+Route::get('/getAllUsers',[UserController::class, 'getAllUsers']);
+Route::get('/getSpecificUser/{username}',[UserController::class, 'getSpecificUser']);
+Route::post('/deleteUserAccount/{username}',[UserController::class, 'deleteUserAccount']);
+Route::post('/updateUserData/{username}',[UserController::class, 'updateUserData']);
+Route::post('/checkVerification/{email}/{verificationcode}',[MailerController::class, 'checkVerification']);

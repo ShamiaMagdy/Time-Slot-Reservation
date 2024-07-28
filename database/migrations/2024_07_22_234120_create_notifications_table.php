@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('type',['Reminder','Cancellation','Booking Confirmation']);
             $table->text('message');
-            $table->foreignId('userID')->constrained('users');
+            $table->foreignId('userID')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
