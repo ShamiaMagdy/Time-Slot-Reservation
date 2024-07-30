@@ -12,7 +12,7 @@ class Service extends Model
     protected $fillable=['serviceName','description','serviceTypeId'];
 
     public function timeSlots(){
-        return $this->hasMany(TimeSlot::class);
+        return $this->hasMany(TimeSlot::class,'serviceId');
     }
 
     public function serviceType(){

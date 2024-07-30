@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MailerController;
+use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,4 @@ Route::get('/getSpecificUser/{username}',[UserController::class, 'getSpecificUse
 Route::post('/deleteUserAccount/{username}',[UserController::class, 'deleteUserAccount']);
 Route::post('/updateUserData/{username}',[UserController::class, 'updateUserData']);
 Route::post('/checkVerification/{email}/{verificationcode}',[MailerController::class, 'checkVerification']);
+Route::get('/getSpecificServiceType/{id}',[ServiceTypeController::class, 'getSpecificServiceType']);
